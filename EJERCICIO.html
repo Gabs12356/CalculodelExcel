@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title></title>
+	<style type="text/css">
+		body{
+			  background: linear-gradient(to right, #cc0066 0%, #3399ff 100%);
+		}
+	 .calculos{
+	 	background: #000099;
+	 	color: #f0e8e6;
+	 	margin: 5px;
+	 	padding: 10px;
+	 	font-size: 20px;
+	 	text-align: center;
+	 }
+	 h1{
+	 	text-align: center;
+	 	color: #660033;
+	 	font-size: 35px;
+	 }
+     p{
+          text-align: center;
+          color: #00ffff;
+          font-size: 35px;
+     }
+     h3{
+          text-align: center;
+          color: #660033;
+          font-size: 35px;
+     }
+	 .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+	</style>
+</head>
+<body>
+	<article>
+	<h1>PROPAGACION DE ERROR</h1>
+	
+	
+		<img src="resonancia.png"  class="center"width="2" height="300">
+        <h3>LA ECUACION GENERAL ES:</h3>
+        <img src="dddd.png"  class="center">
+        <h3>LA ECUACION DERIVADA DE L:</h3>
+        <img src="dd.png"  class="center">
+        <h3>LA ECUACION DERIVADA DE C:</h3>
+        <img src="dddddd.png"  class="center">
+        <h3>LA ECUACION DERIVADA DE R:</h3>
+        <img src="d.png"  class="center">
+        <p>Se denomina frecuencia de resonancia a aquella frecuencia característica de un cuerpo 
+			o un sistema que alcanza el grado máximo de oscilación. Todo cuerpo o sistema tiene una, 
+			o varias, frecuencias características.su vibración es la máxima posible. El aumento de 
+            vibración se produce porque a estas frecuencias el sistema entra en resonancia. <br>
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<br>
+        A continuacion se presentara resultados a partir de operacion que tengan que ver con este tema obviamente.<br>
+        *Primero al tener conocimiento de los valores de las variables de la ecuacion y sus errores se procede a <br>
+        encontrar sus derivadas de las varibles,<br>
+        *Segundo encontramos la propagacion de error<br>
+        *Tercero el  Intervalo en el que se encuentra el valor verdadero<br>
+        *Cuarto El error porcentual <br> </p>
+<script  type="text/javascript" >
+
+/*	var L=prompt("introducir el valor de L: 0.15 ");
+    var C=prompt("introducir el valor de C: 0.0000026");
+    var R=prompt("introducir el valor de R: 8");
+   
+    var LE=prompt("introducir el Error de L: 0.0005");
+    var CE=prompt("introducir el Error de C: 0.0000001");
+    var RE=prompt("introducir el Error de R: 0.0003");
+    */
+    var L=0.15;
+    var C=0.0000026;
+    var R=8;
+   
+    var LE=0.0005;
+    var CE=0.0000001;
+    var RE=0.0003;
+
+    var F= (1/(2*Math.PI))*Math.sqrt((1/(L*C))-Math.pow((R/L),2));
+    var DL=(Math.sqrt(Math.pow(L,2))*(-L+(2*Math.pow(R,2)*C)))/(4*Math.PI*Math.pow(L,3)*Math.sqrt(C)*Math.sqrt(L-Math.pow(R,2)*C));
+    var DC=-(Math.sqrt(Math.pow(L,2)));
+    var s1=(4*Math.PI*L*Math.pow(C,(3/2)));
+    var s2=Math.sqrt(-(Math.pow(R,2)*C)+L);
+    var DC=DC/(s1*s2);
+
+    var DR=-(R*Math.sqrt(C)*L)/(2*Math.PI*Math.pow(L,2)*Math.sqrt(L-Math.pow(R,2)*C));
+
+    var DeltaF=Math.abs(DL)*0.0005+Math.abs(DC)*0.0000001+Math.abs(DR)*0.0003;
+    var t=F+DeltaF;
+    var u=F-DeltaF;
+    var Porcen=(DeltaF/Math.abs(F))*100;
+	document.write("<div class=calculos> Para la derivada de L:"+DL+" </div>")
+	document.write("<div class=calculos> para la derivada de C:"+DC+" </div>")
+    document.write("<div class=calculos> para la derivada de R:"+DR+" </div>")
+    document.write("<div class=calculos> Resultado de la formula general:"+F+" </div>")
+    document.write("<div class=calculos> El resultado de DeltaF(propagacion del error):"+DeltaF+" </div>")
+    document.write("<div class=calculos> Intervalo en el que se encuentra el valor verdadero: " +t+ " y "+u+ " </div>")
+    document.write("<div class=calculos> El error Porcentual es:"+Porcen+" </div>")
+
+    </script>
+    
+    
+	
+
+</script>
+</article>	
+	
+</body>
+</html>
